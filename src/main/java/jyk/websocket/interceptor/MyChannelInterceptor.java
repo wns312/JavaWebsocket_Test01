@@ -17,10 +17,8 @@ import java.security.Principal;
 * 실제 사용되지는 않으므로 무시해도 좋다
 *
 */
-
-
-
 public class MyChannelInterceptor implements ChannelInterceptor {
+
     @Override
     public Message<?> preSend(Message<?> message, MessageChannel channel) {
         // accessor로 헤더에 편리하게접근 가능
@@ -34,6 +32,9 @@ public class MyChannelInterceptor implements ChannelInterceptor {
             User user = (User)accessor.getUser();
             accessor.setUser(user);
             System.out.println(user.getName()); // wns312
-        }return message;
+        }
+        return message;
     }
+
+
 }
